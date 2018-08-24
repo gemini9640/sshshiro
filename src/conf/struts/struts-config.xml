@@ -1,0 +1,77 @@
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.action.extension" value="do" />
+	<constant name="struts.objectFactory" value="spring" />
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+	<constant name="struts.ognl.allowStaticMethodAccess" value="true" />
+	
+
+	<!-- 权限配置 -->
+	<package name="config.authr" namespace="/admin/authr" extends="struts-default">
+		<!-- 认证失败 -->
+		<action name="autheticationFail" class="officeConfigAuthrAction" method="autheticationFail">
+			<result type="plainText"></result>
+		</action> 
+		<!-- 无访问权限 -->
+		<action name="permissionDeny" class="officeConfigAuthrAction" method="permissionDeny">
+			<result type="plainText"></result>
+		</action> 
+		<!-- 更新权限缓存 -->
+		<action name="reloadFilterChainDefinitions" class="officeConfigAuthrAction" method="reloadFilterChainDefinitions">
+			<result type="plainText"></result>
+		</action> 
+		<!-- 管理员授权页面 -->
+		<action name="loadOperatorPermissionMenu" class="officeConfigAuthrAction" method="loadOperatorPermissionMenu">
+			<result name="input">/jsp/systemConfig/authoriz/operatorPermissionMenu.jsp</result>
+		</action>
+		<!-- 角色授权页面 -->
+		<action name="loadRolePermissionMenu" class="officeConfigAuthrAction" method="loadRolePermissionMenu">
+			<result name="input">/jsp/systemConfig/authoriz/rolePermissionMenu.jsp</result>
+		</action>
+		<!-- 权限列表页面 -->
+		<action name="loadModulePermissionMenu" class="officeConfigAuthrAction" method="loadModulePermissionMenu">
+			<result name="input">/jsp/systemConfig/authoriz/modulePermissionMenu.jsp</result>
+		</action>
+		<!-- 角色列表页面 -->
+		<action name="loadRolesMenu" class="officeConfigAuthrAction" method="loadRolesMenu">
+			<result name="input">/jsp/systemConfig/authoriz/roleMenu.jsp</result>
+		</action>
+		<action name="queryPermissionsByOperators" class="officeConfigAuthrAction" method="queryPermissionsByOperators">
+			<result type="plainText"></result>
+		</action>
+		<action name="queryPermissionsByRoles" class="officeConfigAuthrAction" method="queryPermissionsByRoles">
+			<result type="plainText"></result>
+		</action>
+		<action name="queryFmtRolePermissionMenu" class="officeConfigAuthrAction" method="queryFmtRolePermissionMenu">
+			<result type="plainText"></result>
+		</action> 
+		<action name="queryPermissionsByOperatorRole" class="officeConfigAuthrAction" method="queryPermissionsByOperatorRole">
+			<result type="plainText"></result>
+		</action>
+		<action name="queryModulePermissiondeDetail" class="officeConfigAuthrAction" method="queryModulePermissiondeDetail">
+			<result type="plainText"></result>
+		</action>
+		<action name="authorizRolePermission" class="officeConfigAuthrAction" method="authorizRolePermission">
+			<result type="plainText"></result>
+		</action>
+		<action name="authorizOperatorPermission" class="officeConfigAuthrAction" method="authorizOperatorPermission">
+			<result type="plainText"></result>
+		</action>
+		<action name="addPermission" class="officeConfigAuthrAction" method="addPermission">
+			<result type="plainText"></result>
+		</action>
+		<action name="editPermission" class="officeConfigAuthrAction" method="editPermission">
+			<result type="plainText"></result>
+		</action>
+		<action name="enableOrDisablePermission" class="officeConfigAuthrAction" method="enableOrDisablePermission">
+			<result type="plainText"></result>
+		</action>
+		<action name="addRole" class="officeConfigAuthrAction" method="addRole">
+			<result type="plainText"></result>
+		</action>
+		<action name="editRole" class="officeConfigAuthrAction" method="editRole">
+			<result type="plainText"></result>
+		</action>
+	</package>
+</struts>

@@ -1,0 +1,21 @@
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.action.extension" value="do" />
+	<constant name="struts.objectFactory" value="spring" />
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+	<constant name="struts.ognl.allowStaticMethodAccess" value="true" />
+	
+	<package name="operator" namespace="/admin/operator" extends="struts-default">
+		<!-- 创建下级管理员 -->
+		<action name="createSubOperator" class="officeOtherAction"
+			method="createSubOperator">
+			<result name="input">/jsp/operator/createSubOperator.jsp
+			</result>
+		</action>
+		<!--下级管理员列表 -->
+		<action name="subOperator" class="officeOtherAction" method="subOperator">
+			<result name="input">/jsp/operator/subOperator.jsp</result>
+		</action>
+	</package>
+</struts>
